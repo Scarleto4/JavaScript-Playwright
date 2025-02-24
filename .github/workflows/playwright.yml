@@ -16,16 +16,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-          cache: 'npm'  # Кэширование для ускорения установки зависимостей
-
-      - name: Install dependencies
-        run: npm install
 
       - name: Install Playwright browsers
         run: npx playwright install
 
       - name: Run Playwright tests
-        run: npx playwright test || true  # Продолжать workflow даже если тесты не прошли
+        run: npx playwright test || true
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
